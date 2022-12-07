@@ -9,4 +9,5 @@ public class Asset
     public string Symbol { get; set; }
     public int DecimalPrecision { get; set; }
     public AssetTypes AssetType { get; set; }
+    public Exchange Exchange { get; set; }
 }

@@ -9,4 +9,5 @@ public class Exchange
     public string Symbol { get; set; }
     public string Country { get; set; }
     public ExchangeTypes ExchangeType { get; set; }
+    public ICollection<Asset> Assets { get; set; }
 }
