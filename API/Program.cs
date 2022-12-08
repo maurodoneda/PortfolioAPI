@@ -1,7 +1,6 @@
 using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
-using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
 
 var builder = WebApplication.CreateBuilder(args);
