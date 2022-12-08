@@ -1,31 +1,11 @@
+using API;
 using DataAccess;
 using Microsoft.EntityFrameworkCore;
-using Serilog;
-using Serilog.Sinks.SystemConsole.Themes;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddDataAccess();
-
-// Use Serilog
-builder.Host.UseSerilog((hostContext, services, configuration) =>
-{
-    configuration
-        .MinimumLevel.Information()
-        .Enrich.FromLogContext()
-        .Enrich.WithThreadId()
-        .Enrich.WithThreadName()
-        .Enrich.WithEnvironmentName()
-        .Enrich.WithMachineName()
-        .WriteTo.File("logs/portolioApp.txt", rollingInterval: RollingInterval.Day, outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff}] [{Level:u3}] [{ThreadId}] [{SourceContext}] - {Message} {NewLine}{Exception}")
-        .WriteTo.Console(theme: AnsiConsoleTheme.Code, outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff}] [{Level:u3}] [{ThreadId}] [{SourceContext}] - {Message} {NewLine}{Exception}");
-});
+builder.AddLogger();
+builder.Services.ConfigureServices();
 
 var app = builder.Build();
 
