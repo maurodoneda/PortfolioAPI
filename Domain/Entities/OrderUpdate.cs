@@ -4,7 +4,7 @@ namespace Domain.Entities;
 
 public class OrderUpdate
 {
-    public int OrderId { get; set; }
+    public int OrderUpdateId { get; set; }
     public string Direction { get; set; }
     public decimal Price { get; set; }
     public decimal Quantity { get; set; }
