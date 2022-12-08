@@ -1,6 +1,7 @@
 # PortfolioAPI
 
 
-## Entities relationship  
+## Entities relationship
 
-![UMLDiagram](img.png)
+![UMLDiagram](../PortfolioAPI/Assets/PortfolioAPPUML.jpg)
+
