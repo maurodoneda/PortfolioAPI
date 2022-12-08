@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.AddLogger();
 builder.Services.ConfigureServices();
+builder.AddLogger();
 
 var app = builder.Build();
 

@@ -8,7 +8,7 @@ public class BaseRepository : IBaseRepository
     private readonly ILoggerFactory _loggerFactory;
     private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1);
 
-    protected BaseRepository(AppDbContext context, ILoggerFactory loggerFactory)
+    public BaseRepository(AppDbContext context, ILoggerFactory loggerFactory)
     {
         _context = context;
         _loggerFactory = loggerFactory;

@@ -1,15 +1,19 @@
+using AutoMapper;
 using DataAccess;
 using Domain.DTOs;
+using Domain.Entities;
 
 namespace Application.Services;
 
-public class UserService
+public class UsersService
 {
     private readonly IBaseRepository _repository;
+    private readonly IMapper _mapper;
 
-    public UserService(IBaseRepository repository)
+    public UsersService(IBaseRepository repository, IMapper mapper)
     {
         _repository = repository;
+        _mapper = mapper;
     }
 
     public async Task<UserDTO> GetUserByIdAsync(int id)
@@ -19,7 +23,8 @@ public class UserService
 
     public async Task<UserDTO> CreateUserAsync(UserDTO user)
     {
-        return await _repository.CreateAsync(user);
+        var created = await _repository.CreateAsync(_mapper.Map<User>(user));
+        return _mapper.Map<UserDTO>(created);
     }
 
     public async Task<UserDTO> UpdateUserAsync(UserDTO user)

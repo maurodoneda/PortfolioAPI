@@ -10,7 +10,7 @@ public static class DependencyInjection
     {
         Log.Information("Adding application...");
 
-        services.AddSingleton<UserService>();
+        services.AddScoped<UsersService>();
         
         services.AddAutoMapper(config =>
         {
