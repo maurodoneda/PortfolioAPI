@@ -1,7 +1,7 @@
 using DataAccess;
 using Domain.DTOs;
 
-namespace Application;
+namespace Application.Services;
 
 public class UserService
 {
@@ -12,7 +12,7 @@ public class UserService
         _repository = repository;
     }
 
-    public async Task<UserDTO> GetProductById(int id)
+    public async Task<UserDTO> GetUserByIdAsync(int id)
     {
         return await _repository.ReadAsync<UserDTO>(id);
     }
